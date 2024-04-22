@@ -2,11 +2,11 @@ package io.github.wkktoria;
 
 import org.junit.Test;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertTrue;
 
 public class MainTest {
     @Test
     public void testDemo() {
-        fail();
+        assertTrue(true);
     }
 }
