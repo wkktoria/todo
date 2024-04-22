@@ -20,6 +20,7 @@ public class Main {
 
         var handler = new ServletHandler();
         handler.addServletWithMapping(HelloServlet.class, "/api/hello/*");
+        handler.addServletWithMapping(LanguageServlet.class, "/api/languages/*");
 
         HandlerList handlerList = new HandlerList(resourceHandler, handler);
         server.setHandler(handlerList);
