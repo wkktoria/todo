@@ -21,8 +21,8 @@ class HelloService {
     }
 
     String prepareGreeting(String name, Long languageId) {
-        var welcomePrefix = repository.findById(languageId).orElse(FALLBACK_LANGUAGE).getWelcomePrefix();
+        var greetingPrefix = repository.findById(languageId).orElse(FALLBACK_LANGUAGE).getGreetingPrefix();
         var nameToWelcome = Optional.ofNullable(name).orElse(FALLBACK_NAME);
-        return welcomePrefix + " " + nameToWelcome + "!";
+        return greetingPrefix + " " + nameToWelcome + "!";
     }
 }

@@ -2,12 +2,12 @@ package io.github.wkktoria;
 
 class Language {
     private final Long id;
-    private String welcomePrefix;
+    private String greetingPrefix;
     private String code;
 
-    public Language(Long id, String welcomePrefix, String code) {
+    public Language(Long id, String greetingPrefix, String code) {
         this.id = id;
-        this.welcomePrefix = welcomePrefix;
+        this.greetingPrefix = greetingPrefix;
         this.code = code;
     }
 
@@ -15,12 +15,12 @@ class Language {
         return id;
     }
 
-    public String getWelcomePrefix() {
-        return welcomePrefix;
+    public String getGreetingPrefix() {
+        return greetingPrefix;
     }
 
-    public void setWelcomePrefix(String welcomePrefix) {
-        this.welcomePrefix = welcomePrefix;
+    public void setGreetingPrefix(String greetingPrefix) {
+        this.greetingPrefix = greetingPrefix;
     }
 
     public String getCode() {
