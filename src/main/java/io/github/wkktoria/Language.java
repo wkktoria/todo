@@ -1,7 +1,19 @@
 package io.github.wkktoria;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.id.IncrementGenerator;
+
+@Entity
+@Table(name = "languages")
 class Language {
-    private final Long id;
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", type = IncrementGenerator.class)
+    private Long id;
     private String greetingPrefix;
     private String code;
 
@@ -9,6 +21,13 @@ class Language {
         this.id = id;
         this.greetingPrefix = greetingPrefix;
         this.code = code;
+    }
+
+    /**
+     * Hibernate (JPA) needs it.
+     */
+    public Language() {
+
     }
 
     public Long getId() {

@@ -2,6 +2,7 @@ package io.github.wkktoria;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletHandler;
+import org.eclipse.jetty.util.component.LifeCycle;
 import org.slf4j.LoggerFactory;
 
 public class Main {
@@ -16,6 +17,12 @@ public class Main {
 
         handler.addServletWithMapping(HelloServlet.class, "/api/hello/*");
 
+        server.addEventListener(new LifeCycle.Listener() {
+            @Override
+            public void lifeCycleStopped(LifeCycle event) {
+                HibernateUtil.close();
+            }
+        });
         server.start();
         server.join();
     }
