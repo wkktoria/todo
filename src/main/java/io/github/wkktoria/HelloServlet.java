@@ -9,18 +9,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.Objects;
+import java.util.Optional;
 
 @WebServlet(name = "Hello", urlPatterns = {"/api/hello/*"})
 public class HelloServlet extends HttpServlet {
+    private static final String NAME_PARAM = "name";
+
     private final Logger logger = LoggerFactory.getLogger(HelloServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.info("Request got");
+        logger.info("Got request with params: {}", req.getParameterMap());
 
-        String nameParam = req.getParameter("name");
-        String name = Objects.equals(nameParam, null) ? "world" : nameParam;
+        String name = Optional.ofNullable(req.getParameter(NAME_PARAM)).orElse("world");
 
         resp.getWriter().write("Hello " + name + "!");
     }
