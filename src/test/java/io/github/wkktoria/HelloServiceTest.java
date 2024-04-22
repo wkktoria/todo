@@ -8,6 +8,8 @@ import static org.junit.Assert.assertEquals;
 
 public class HelloServiceTest {
     private final static String GREETING_PREFIX = "Hello";
+    private final static String FALLBACK_LANGUAGE_ID_GREETING_PREFIX = "Hallo";
+
 
     @Test
     public void test_prepareGreeting_nullName_returnsGreetingWithFallbackName() {
@@ -39,23 +41,27 @@ public class HelloServiceTest {
     @Test
     public void test_prepareGreeting_nullLanguage_returnsGreetingWithFallbackLanguageId() {
         // given
-        var fallbackGreetingPrefix = "Hallo";
-        var mockRepository = new LanguageRepository() {
-            @Override
-            Optional<Language> findById(Long id) {
-                if (id.equals(HelloService.FALLBACK_LANGUAGE.getId())) {
-                    return Optional.of(new Language(null, fallbackGreetingPrefix, null));
-                }
-                return Optional.empty();
-            }
-        };
+        var mockRepository = fallbackLanguageIdHelloRepository();
         var SUT = new HelloService(mockRepository);
 
         // when
         var result = SUT.prepareGreeting(null, null);
 
         // then
-        assertEquals(fallbackGreetingPrefix + " " + HelloService.FALLBACK_NAME + "!", result);
+        assertEquals(FALLBACK_LANGUAGE_ID_GREETING_PREFIX + " " + HelloService.FALLBACK_NAME + "!", result);
+    }
+
+    @Test
+    public void test_prepareGreeting_textLanguage_returnGreetingWithFallbackLanguageId() {
+        // given
+        var mockRepository = fallbackLanguageIdHelloRepository();
+        var SUT = new HelloService(mockRepository);
+
+        // when
+        var result = SUT.prepareGreeting(null, "abc");
+
+        // then
+        assertEquals(FALLBACK_LANGUAGE_ID_GREETING_PREFIX + " " + HelloService.FALLBACK_NAME + "!", result);
     }
 
     private LanguageRepository alwaysReturningHelloRepository() {
@@ -63,6 +69,18 @@ public class HelloServiceTest {
             @Override
             Optional<Language> findById(Long id) {
                 return Optional.of(new Language(null, GREETING_PREFIX, null));
+            }
+        };
+    }
+
+    private LanguageRepository fallbackLanguageIdHelloRepository() {
+        return new LanguageRepository() {
+            @Override
+            Optional<Language> findById(Long id) {
+                if (id.equals(HelloService.FALLBACK_LANGUAGE.getId())) {
+                    return Optional.of(new Language(null, FALLBACK_LANGUAGE_ID_GREETING_PREFIX, null));
+                }
+                return Optional.empty();
             }
         };
     }
