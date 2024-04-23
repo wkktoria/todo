@@ -77,7 +77,7 @@ addTodoButton.addEventListener("click", (event) => {
     fetch(`${BASE_API_URL}/todos`, {
         method: "POST",
         headers: {"Content-Type": "application/json", "Accept": "application/json"},
-        body: JSON.stringify({text: todoTextInput.value})
+        body: JSON.stringify({text: todoTextInput.value, done: false})
     })
         .then(processOkResponse)
         .then(createNewTodo)
