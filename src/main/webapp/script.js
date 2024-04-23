@@ -67,6 +67,24 @@ const initTodos = () => {
 initGreetingForm();
 initTodos();
 
+addTodoButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    if (!todoTextInput.value) {
+        return;
+    }
+
+    fetch(`${BASE_API_URL}/todos`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json", "Accept": "application/json"},
+        body: JSON.stringify({text: todoTextInput.value})
+    })
+        .then(processOkResponse)
+        .then(createNewTodo)
+        .then(() => todoTextInput.value = "")
+        .catch(error => console.log(error));
+});
+
 const createNewTodo = (todo) => {
     const label = document.createElement("label");
     label.classList.add("pure-checkbox");
