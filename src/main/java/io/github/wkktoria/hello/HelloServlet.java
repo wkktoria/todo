@@ -34,6 +34,12 @@ public class HelloServlet extends HttpServlet {
         logger.info("Got request with params: {}", req.getParameterMap());
         String name = req.getParameter(NAME_PARAM);
         String language = req.getParameter(LANGUAGE_PARAM);
-        resp.getWriter().write(service.prepareGreeting(name, language));
+        Long languageId = null;
+        try {
+            languageId = Long.valueOf(language);
+        } catch (NumberFormatException e) {
+            logger.warn("Non-numeric language id used: {}", language);
+        }
+        resp.getWriter().write(service.prepareGreeting(name, languageId));
     }
 }
