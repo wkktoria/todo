@@ -15,4 +15,19 @@ class TodoRepository {
 
         return result;
     }
+
+    Todo toggleTodo(Long id) {
+        var session = HibernateUtil.getSessionFactory().openSession();
+        var transaction = session.beginTransaction();
+        var query = session.createQuery("select * from todos where id = :id");
+        query.setParameter("id", id);
+        var result = (Todo) query.getSingleResult();
+
+        result.setDone(!result.getDone());
+
+        transaction.commit();
+        session.close();
+
+        return result;
+    }
 }
