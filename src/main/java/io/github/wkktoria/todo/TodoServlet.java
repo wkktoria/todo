@@ -32,14 +32,14 @@ public class TodoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        logger.info("Got request with params: {}", req.getParameterMap());
+        logger.info("GOT request with params: {}", req.getParameterMap());
         resp.setContentType("application/json; charset=UTF-8");
         mapper.writeValue(resp.getOutputStream(), repository.findAll());
     }
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        logger.info("Got request with params: {}", req.getParameterMap());
+        logger.info("PUT request with params: {}", req.getParameterMap());
         String pathInfo = req.getPathInfo();
         try {
             var todoId = Long.valueOf(pathInfo.replace("/", ""));
@@ -53,7 +53,7 @@ public class TodoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.info("Got request with params: {}", req.getParameterMap());
+        logger.info("POST request with params: {}", req.getParameterMap());
         var todo = mapper.readValue(req.getReader(), Todo.class);
         resp.setContentType("application/json; charset=UTF-8");
         mapper.writeValue(resp.getOutputStream(), repository.addTodo(todo));

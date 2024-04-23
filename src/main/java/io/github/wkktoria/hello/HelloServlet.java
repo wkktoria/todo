@@ -31,7 +31,7 @@ public class HelloServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        logger.info("Got request with params: {}", req.getParameterMap());
+        logger.info("GOT request with params: {}", req.getParameterMap());
         String name = req.getParameter(NAME_PARAM);
         String language = req.getParameter(LANGUAGE_PARAM);
         Long languageId = null;

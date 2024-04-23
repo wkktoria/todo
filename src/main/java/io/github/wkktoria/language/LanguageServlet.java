@@ -31,7 +31,7 @@ public class LanguageServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        logger.info("Got request with params: {}", req.getParameterMap());
+        logger.info("GOT request with params: {}", req.getParameterMap());
         resp.setContentType("application/json;charset=UTF-8");
         mapper.writeValue(resp.getOutputStream(), service.findAll());
     }
