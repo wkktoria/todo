@@ -2,6 +2,7 @@ package io.github.wkktoria;
 
 import io.github.wkktoria.hello.HelloServlet;
 import io.github.wkktoria.language.LanguageServlet;
+import io.github.wkktoria.todo.TodoServlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
@@ -23,6 +24,7 @@ public class Main {
         var handler = new ServletHandler();
         handler.addServletWithMapping(HelloServlet.class, "/api/hello/*");
         handler.addServletWithMapping(LanguageServlet.class, "/api/languages/*");
+        handler.addServletWithMapping(TodoServlet.class, "/api/todos/*");
 
         HandlerList handlerList = new HandlerList(resourceHandler, handler);
         server.setHandler(handlerList);
