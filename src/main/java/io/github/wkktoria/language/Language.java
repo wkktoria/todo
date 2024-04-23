@@ -1,4 +1,4 @@
-package io.github.wkktoria;
+package io.github.wkktoria.language;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import org.hibernate.id.IncrementGenerator;
 
 @Entity
 @Table(name = "languages")
-class Language {
+public class Language {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", type = IncrementGenerator.class)

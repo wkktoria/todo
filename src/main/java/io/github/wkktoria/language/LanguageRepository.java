@@ -1,10 +1,12 @@
-package io.github.wkktoria;
+package io.github.wkktoria.language;
+
+import io.github.wkktoria.HibernateUtil;
 
 import java.util.List;
 import java.util.Optional;
 
-class LanguageRepository {
-    Optional<Language> findById(Long id) {
+public class LanguageRepository {
+    public Optional<Language> findById(Long id) {
         var session = HibernateUtil.getSessionFactory().openSession();
         var transaction = session.beginTransaction();
         var result = session.get(Language.class, id);

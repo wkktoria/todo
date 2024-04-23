@@ -1,5 +1,7 @@
 package io.github.wkktoria;
 
+import io.github.wkktoria.hello.HelloServlet;
+import io.github.wkktoria.language.LanguageServlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;

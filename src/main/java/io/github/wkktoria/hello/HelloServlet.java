@@ -1,4 +1,4 @@
-package io.github.wkktoria;
+package io.github.wkktoria.hello;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

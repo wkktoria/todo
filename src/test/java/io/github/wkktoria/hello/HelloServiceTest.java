@@ -1,5 +1,7 @@
-package io.github.wkktoria;
+package io.github.wkktoria.hello;
 
+import io.github.wkktoria.language.Language;
+import io.github.wkktoria.language.LanguageRepository;
 import org.junit.Test;
 
 import java.util.Optional;
@@ -69,7 +71,7 @@ public class HelloServiceTest {
         // given
         var mockRepository = new LanguageRepository() {
             @Override
-            Optional<Language> findById(Long id) {
+            public Optional<Language> findById(Long id) {
                 return Optional.empty();
             }
         };
@@ -85,7 +87,7 @@ public class HelloServiceTest {
     private LanguageRepository alwaysReturningHelloRepository() {
         return new LanguageRepository() {
             @Override
-            Optional<Language> findById(Long id) {
+            public Optional<Language> findById(Long id) {
                 return Optional.of(new Language(null, GREETING_PREFIX, null));
             }
         };
@@ -94,7 +96,7 @@ public class HelloServiceTest {
     private LanguageRepository fallbackLanguageIdHelloRepository() {
         return new LanguageRepository() {
             @Override
-            Optional<Language> findById(Long id) {
+            public Optional<Language> findById(Long id) {
                 if (id.equals(HelloService.FALLBACK_LANGUAGE.getId())) {
                     return Optional.of(new Language(null, FALLBACK_LANGUAGE_ID_GREETING_PREFIX, null));
                 }
