@@ -19,9 +19,10 @@ class TodoRepository {
     Todo toggleTodo(Long id) {
         var session = HibernateUtil.getSessionFactory().openSession();
         var transaction = session.beginTransaction();
-        var query = session.createQuery("select * from todos where id = :id");
-        query.setParameter("id", id);
-        var result = (Todo) query.getSingleResult();
+        String sql = "select * from todos where id = ?";
+        var query = session.createNativeQuery(sql, Todo.class);
+        query.setParameter(1, id);
+        var result = query.getSingleResult();
 
         result.setDone(!result.getDone());
 
