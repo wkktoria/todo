@@ -20,6 +20,7 @@ public class TodoServlet extends HttpServlet {
     /**
      * Servlet container needs it.
      */
+    @SuppressWarnings("unused")
     public TodoServlet() {
         this(new TodoRepository(), new ObjectMapper());
     }
