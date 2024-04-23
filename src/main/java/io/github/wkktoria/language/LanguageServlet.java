@@ -13,7 +13,7 @@ import java.io.IOException;
 @WebServlet(name = "Language", urlPatterns = {"/api/languages/*"})
 public class LanguageServlet extends HttpServlet {
     private final Logger logger = LoggerFactory.getLogger(LanguageServlet.class);
-    private final LanguageRepository repository;
+    private final LanguageService service;
     private final ObjectMapper mapper;
 
     /**
@@ -21,11 +21,11 @@ public class LanguageServlet extends HttpServlet {
      */
     @SuppressWarnings("unused")
     public LanguageServlet() {
-        this(new LanguageRepository(), new ObjectMapper());
+        this(new LanguageService(), new ObjectMapper());
     }
 
-    LanguageServlet(LanguageRepository repository, ObjectMapper mapper) {
-        this.repository = repository;
+    LanguageServlet(LanguageService service, ObjectMapper mapper) {
+        this.service = service;
         this.mapper = mapper;
     }
 
@@ -33,6 +33,6 @@ public class LanguageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         logger.info("Got request with params: {}", req.getParameterMap());
         resp.setContentType("application/json;charset=UTF-8");
-        mapper.writeValue(resp.getOutputStream(), repository.findAll());
+        mapper.writeValue(resp.getOutputStream(), service.findAll());
     }
 }
