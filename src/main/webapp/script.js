@@ -73,14 +73,14 @@ const createNewTodo = (todo) => {
     label.classList.add("todo");
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.checked = todo.isDone;
+    checkbox.checked = todo.done;
     checkbox.classList.add("todo-checkbox");
     checkbox.addEventListener("click", (event) => {
         event.preventDefault();
 
-        fetch(`${BASE_API_URL}/todos/${todo.id}`)
+        fetch(`${BASE_API_URL}/todos/${todo.id}`, {method: "PUT"})
             .then(processOkResponse)
-            .then(updatedTodo => checkbox.checked = !!updatedTodo.isDone)
+            .then(updatedTodo => checkbox.checked = !!updatedTodo.done)
             .catch(error => console.log(error));
     });
     label.appendChild(checkbox);
