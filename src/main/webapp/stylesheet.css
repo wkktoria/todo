@@ -57,6 +57,18 @@ body {
     margin: 10px 0;
 }
 
+#todosForm {
+    display: none;
+}
+
+.todo {
+    cursor: pointer;
+}
+
+.todo-checkbox {
+    margin-right: 10px
+}
+
 [type=radio] {
     position: absolute;
     opacity: 0;

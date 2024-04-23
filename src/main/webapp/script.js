@@ -8,31 +8,82 @@ const greetingForm = document.getElementById("greetingForm");
 const greetingFormSubmitButton = document.getElementById("greetingFormSubmitButton");
 const greetingHeading = document.getElementById("greetingHeading");
 const languagesContainer = document.getElementById("languagesContainer");
+const todosForm = document.getElementById("todosForm");
+const todoTextInput = document.getElementById("todoTextInput");
+const addTodoButton = document.getElementById("addTodoButton");
+const allTodosFieldset = document.getElementById("allTodosFieldset");
 
-fetch(`${BASE_API_URL}/languages`)
-    .then((response) => response.json())
-    .then((languages) => {
-        languagesContainer.innerHTML = languages.map(language => `
+const processOkResponse = (response = {}) => {
+    if (response.ok) {
+        return response.json();
+    }
+    throw new Error(`${response.text}: ${response.status}`);
+};
+
+const initGreetingFormClick = () => {
+    greetingFormSubmitButton.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const name = greetingForm.elements["name"].value;
+        const language = greetingForm.elements["language"].value;
+        const greetingFormObject = {
+            name, language
+        };
+
+        fetch(`${BASE_API_URL}/hello?${new URLSearchParams(greetingFormObject)}`)
+            .then((response) => response.text())
+            .then((responseText) => {
+                greetingHeading.innerText = `${responseText}`;
+            }).catch(error => console.error(error));
+
+        greetingForm.remove();
+        todosForm.style.display = "block";
+    });
+};
+
+const initGreetingForm = () => {
+    fetch(`${BASE_API_URL}/languages`)
+        .then(processOkResponse)
+        .then((languages) => {
+            languagesContainer.innerHTML = languages.map(language => `
         <label class="pure-radio">
             <input name="language" type="radio" value=${language.id}>
             <img alt="Flag" src=${CODE_TO_FLAG[language.code]}>
         </label>
         `).join("\n");
-    })
-    .catch(error => console.log(error));
+        })
+        .catch(error => console.log(error));
 
-greetingFormSubmitButton.addEventListener("click", (event) => {
-    event.preventDefault();
+    initGreetingFormClick();
+};
 
-    const name = greetingForm.elements["name"].value;
-    const language = greetingForm.elements["language"].value;
-    const greetingFormObject = {
-        name, language
-    };
+const initTodos = () => {
+    fetch(`${BASE_API_URL}/todos`)
+        .then(processOkResponse)
+        .then(todos => todos.forEach(todo => createNewTodo(todo)))
+        .catch(error => console.log(error));
+};
 
-    fetch(`${BASE_API_URL}/hello?${new URLSearchParams(greetingFormObject)}`)
-        .then((response) => response.text())
-        .then((responseText) => {
-            greetingHeading.innerText = `${responseText}`;
-        }).catch(error => console.error(error));
-});
+initGreetingForm();
+initTodos();
+
+const createNewTodo = (todo) => {
+    const label = document.createElement("label");
+    label.classList.add("pure-checkbox");
+    label.classList.add("todo");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = todo.isDone;
+    checkbox.classList.add("todo-checkbox");
+    checkbox.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        fetch(`${BASE_API_URL}/todos/${todo.id}`)
+            .then(processOkResponse)
+            .then(updatedTodo => checkbox.checked = !!updatedTodo.isDone)
+            .catch(error => console.log(error));
+    });
+    label.appendChild(checkbox);
+    label.appendChild(document.createTextNode(todo.text));
+    allTodosFieldset.appendChild(label);
+};
