@@ -26,6 +26,7 @@
 
         <!-- Names the annotated entity class -->
         <mapping class="io.github.wkktoria.language.Language"/>
+        <mapping class="io.github.wkktoria.todo.Todo"/>
 
     </session-factory>
 
