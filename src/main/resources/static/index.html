@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Todo List</title>
+    <link href="public/favicon.svg" rel="icon">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+          integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" rel="stylesheet">
+    <link href="stylesheet.css" rel="stylesheet">
+</head>
+<body>
+<div id="container">
+    <h1 id="greetingHeading">Hello!</h1>
+    <form class="pure-form" id="greetingForm">
+        <label>
+            <input class="pure-input-rounded" name="name" placeholder="Name..." type="text">
+        </label>
+        <div id="languagesContainer">
+        </div>
+        <button class="pure-button pure-button-primary" id="greetingFormSubmitButton">Submit</button>
+    </form>
+    <form class="pure-form" id="todosForm">
+        <label>
+            <input class="pure-input-rounded pure-input" id="todoTextInput" placeholder="New todo">
+        </label>
+        <button class="pure-button pure-button-primary" id="addTodoButton">Add</button>
+        <fieldset id="allTodosFieldset"></fieldset>
+    </form>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
