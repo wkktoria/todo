@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 class HelloServlet {
-    private static final String NAME_PARAM = "name";
-    private static final String LANGUAGE_PARAM = "language";
-
     private final Logger logger = LoggerFactory.getLogger(HelloServlet.class);
     private final HelloService service;
 
