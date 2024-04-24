@@ -21,7 +21,7 @@ class LanguageServlet {
 
     @GetMapping("/languages")
     ResponseEntity<List<LanguageDTO>> findAllLanguages() {
-        logger.info("GOT request with params");
+        logger.info("GOT request");
         return ResponseEntity.ok(service.findAll());
     }
 }
