@@ -2,15 +2,12 @@ package io.github.wkktoria.todo.hello;
 
 import io.github.wkktoria.todo.language.Language;
 import io.github.wkktoria.todo.language.LanguageRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 
 class HelloService {
     static final String FALLBACK_NAME = "world";
     static final Language FALLBACK_LANGUAGE = new Language(1L, "Hello", "en");
-    private final Logger logger = LoggerFactory.getLogger(HelloService.class);
 
     private final LanguageRepository repository;
 

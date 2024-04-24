@@ -1,13 +1,8 @@
 package io.github.wkktoria.todo.language;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.List;
 
 class LanguageService {
-    private final Logger logger = LoggerFactory.getLogger(LanguageService.class);
-
     private final LanguageRepository repository;
 
     LanguageService() {
