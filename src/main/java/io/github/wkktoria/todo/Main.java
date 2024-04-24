@@ -1,4 +1,4 @@
-package io.github.wkktoria;
+package io.github.wkktoria.todo;
 
 import io.github.wkktoria.todo.hello.HelloServlet;
 import io.github.wkktoria.todo.language.LanguageServlet;

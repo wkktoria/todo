@@ -1,4 +1,4 @@
-package io.github.wkktoria;
+package io.github.wkktoria.todo;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;

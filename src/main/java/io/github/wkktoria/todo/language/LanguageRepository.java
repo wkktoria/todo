@@ -1,6 +1,6 @@
 package io.github.wkktoria.todo.language;
 
-import io.github.wkktoria.HibernateUtil;
+import io.github.wkktoria.todo.HibernateUtil;
 
 import java.util.List;
 import java.util.Optional;
