@@ -1,6 +1,5 @@
-package io.github.wkktoria.hello;
+package io.github.wkktoria.todo.hello;
 
-import io.github.wkktoria.todo.hello.HelloService;
 import io.github.wkktoria.todo.language.Language;
 import io.github.wkktoria.todo.language.LanguageRepository;
 import org.junit.Test;
