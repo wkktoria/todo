@@ -6,3 +6,6 @@ at [spring branch](https://github.com/wkktoria/todo/tree/spring).
 > [!CAUTION]
 > Running application requires to set VM options for `hibernate_db_path`, `hibernate_username` and `hibernate_password`.
 > It is possible to use VM options with Jetty by configuring the `MAVEN_OPTS`.
+
+> [!WARNING]
+> Running database migrations requires to create `flyway.conf` file, see [flyway_example.conf](flyway_example.conf).
