@@ -16,5 +16,5 @@ at [spring branch](https://github.com/wkktoria/todo/tree/spring).
 2. Run the following command in terminal window in the root directory:
 
 ```console
-./mvwn jetty:run
+./mvnw jetty:run
 ```
