@@ -25,7 +25,7 @@ const initGreetingFormClick = () => {
         event.preventDefault();
 
         const name = greetingForm.elements["name"].value;
-        const language = greetingForm.elements["language"].value;
+        const language = greetingForm.elements["language"].value ? greetingForm.elements["language"].value : 1;
         const greetingFormObject = {
             name, language
         };
