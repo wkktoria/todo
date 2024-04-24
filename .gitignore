@@ -1,5 +1,6 @@
 flyway.conf
 db.*
+.env
 
 target/
 !.mvn/wrapper/maven-wrapper.jar
