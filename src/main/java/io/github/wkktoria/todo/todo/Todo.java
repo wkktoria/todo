@@ -1,4 +1,4 @@
-package io.github.wkktoria.todo;
+package io.github.wkktoria.todo.todo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

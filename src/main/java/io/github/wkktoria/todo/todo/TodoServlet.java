@@ -1,4 +1,4 @@
-package io.github.wkktoria.todo;
+package io.github.wkktoria.todo.todo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;

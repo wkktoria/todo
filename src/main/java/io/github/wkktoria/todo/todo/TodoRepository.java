@@ -1,4 +1,4 @@
-package io.github.wkktoria.todo;
+package io.github.wkktoria.todo.todo;
 
 import io.github.wkktoria.HibernateUtil;
 

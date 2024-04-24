@@ -1,4 +1,4 @@
-package io.github.wkktoria.language;
+package io.github.wkktoria.todo.language;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

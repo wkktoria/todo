@@ -1,8 +1,8 @@
 package io.github.wkktoria;
 
-import io.github.wkktoria.hello.HelloServlet;
-import io.github.wkktoria.language.LanguageServlet;
-import io.github.wkktoria.todo.TodoServlet;
+import io.github.wkktoria.todo.hello.HelloServlet;
+import io.github.wkktoria.todo.language.LanguageServlet;
+import io.github.wkktoria.todo.todo.TodoServlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;

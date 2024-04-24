@@ -1,4 +1,4 @@
-package io.github.wkktoria.language;
+package io.github.wkktoria.todo.language;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.annotation.WebServlet;

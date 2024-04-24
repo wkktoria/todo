@@ -25,8 +25,8 @@
         <property name="hbm2ddl.auto">validate</property>
 
         <!-- Names the annotated entity class -->
-        <mapping class="io.github.wkktoria.language.Language"/>
-        <mapping class="io.github.wkktoria.todo.Todo"/>
+        <mapping class="io.github.wkktoria.todo.language.Language"/>
+        <mapping class="io.github.wkktoria.todo.todo.Todo"/>
 
     </session-factory>
 

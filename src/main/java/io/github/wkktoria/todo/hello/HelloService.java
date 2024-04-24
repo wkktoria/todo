@@ -1,7 +1,7 @@
-package io.github.wkktoria.hello;
+package io.github.wkktoria.todo.hello;
 
-import io.github.wkktoria.language.Language;
-import io.github.wkktoria.language.LanguageRepository;
+import io.github.wkktoria.todo.language.Language;
+import io.github.wkktoria.todo.language.LanguageRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
