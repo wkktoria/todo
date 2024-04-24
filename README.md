@@ -10,5 +10,5 @@ There is also Jetty version of this application available at [main branch](https
 Run the following command in terminal window in the root directory:
 
 ```console
-./mvwn spring-boot:run
+./mvnw spring-boot:run
 ```
