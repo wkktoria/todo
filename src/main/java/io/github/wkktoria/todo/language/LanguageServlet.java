@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/languages")
 class LanguageServlet {
     private final Logger logger = LoggerFactory.getLogger(LanguageServlet.class);
     private final LanguageService service;
@@ -19,7 +19,7 @@ class LanguageServlet {
         this.service = service;
     }
 
-    @GetMapping("/languages")
+    @GetMapping
     ResponseEntity<List<LanguageDTO>> findAllLanguages() {
         logger.info("GOT request");
         return ResponseEntity.ok(service.findAll());

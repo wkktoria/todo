@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/hello")
 class HelloServlet {
     private final Logger logger = LoggerFactory.getLogger(HelloServlet.class);
     private final HelloService service;
@@ -18,13 +18,13 @@ class HelloServlet {
         this.service = service;
     }
 
-    @GetMapping("/hello")
+    @GetMapping
     ResponseEntity<String> getGreeting() {
         logger.info("GOT request");
         return ResponseEntity.ok(service.prepareGreeting(null, null));
     }
 
-    @GetMapping(value = "/hello", params = {"language", "name"})
+    @GetMapping(params = {"language", "name"})
     ResponseEntity<String> getGreeting(@RequestParam("language") Long languageId, @RequestParam String name) {
         logger.info("GOT request with params");
         return ResponseEntity.ok(service.prepareGreeting(name, languageId));

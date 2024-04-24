@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/todos")
 class TodoServlet {
     private final Logger logger = LoggerFactory.getLogger(TodoServlet.class);
     private final TodoRepository repository;
@@ -17,13 +17,13 @@ class TodoServlet {
         this.repository = repository;
     }
 
-    @GetMapping("/todos")
+    @GetMapping
     ResponseEntity<List<Todo>> findAllTodos() {
         logger.info("GOT request");
         return ResponseEntity.ok(repository.findAll());
     }
 
-    @PutMapping("/todos/{id}")
+    @PutMapping("/{id}")
     ResponseEntity<Todo> toggleTodo(@PathVariable("id") Long id) {
         logger.info("PUT request");
         var todo = repository.findById(id);
@@ -34,7 +34,7 @@ class TodoServlet {
         return todo.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/todos")
+    @PostMapping
     ResponseEntity<Todo> saveTodo(@RequestBody Todo todo) {
         logger.info("POST request");
         return ResponseEntity.ok(repository.save(todo));
