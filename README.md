@@ -3,6 +3,14 @@
 There is also Spring version of this application available
 at [spring branch](https://github.com/wkktoria/todo/tree/spring).
 
+## About
+
+Simple todo-list application.
+
+### Demo
+
+![demo](demo.gif)
+
 ## Run the application
 
 > [!CAUTION]
