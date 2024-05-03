@@ -1,17 +1,17 @@
-<h1 style="text-align: center;">todo</h1>
+<h1 align="center">todo</h1>
+
+<h3 align="center">Simple todo-list application.</h3>
+
+![demo](demo.gif)
+
+<p align="center">
+  • <a href="#run-the-application">Run the Application</a> •
+  <a href="#run-database-migration">Run Database Migration</a> •
+</p>
 
 > [!NOTE]
 > There is also Spring version of this application available
 > at [spring branch](https://github.com/wkktoria/todo/tree/spring).
-
-<h3 style="text-align: center;">Simple todo-list application.</h3>
-
-![demo](demo.gif)
-
-<p style="text-align: center;">
-  • <a href="#run-the-application">Run the Application</a> •
-  <a href="#run-database-migration">Run Database Migration</a> •
-</p>
 
 ## Run the Application
 
