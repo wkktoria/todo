@@ -1,28 +1,32 @@
-# todo
+<h1 style="text-align: center;">todo</h1>
 
-There is also Spring version of this application available
-at [spring branch](https://github.com/wkktoria/todo/tree/spring).
+> [!NOTE]
+> There is also Spring version of this application available
+> at [spring branch](https://github.com/wkktoria/todo/tree/spring).
 
-## About
-
-Simple todo-list application.
-
-### Demo
+<h3 style="text-align: center;">Simple todo-list application.</h3>
 
 ![demo](demo.gif)
 
-## Run the application
+<p style="text-align: center;">
+  • <a href="#run-the-application">Run the Application</a> •
+  <a href="#run-database-migration">Run Database Migration</a> •
+</p>
 
-> [!CAUTION]
-> Running application requires to set VM options for `hibernate_db_path`, `hibernate_username` and `hibernate_password`.
-> It is possible to use VM options with Jetty by configuring the `MAVEN_OPTS`.
+## Run the Application
 
-> [!WARNING]
-> Running database migrations requires to create `flyway.conf` file, see [flyway_example.conf](flyway_example.conf).
-
-1. Configure `MAVEN_OPTS`.
-2. Run the following command in terminal window in the root directory:
+1. Configure `MAVEN_OPTS` - set up `hibernate_db_path`, `hibernate_username`, and `hibernate_password`.
+2. Run the following command:
 
 ```console
 ./mvnw jetty:run
+```
+
+## Run Database Migration
+
+1. Create `flyway.conf` file, see [flyway_example.conf](flyway_example.conf).
+2. Run the following command:
+
+```console
+./mvnw flyway:migrate
 ```
