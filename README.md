@@ -1,21 +1,21 @@
-# todo
+<h1 align="center">todo</h1>
 
-There is also Jetty version of this application available at [main branch](https://github.com/wkktoria/todo).
-
-## About
-
-Simple to-do list application.
-
-### Demo
+<h3 align="center">Simple todo-list application.</h3>
 
 ![demo](demo.gif)
 
-## Run the application
+<p align="center">
+  • <a href="#run-the-application">Run the Application</a> •
+</p>
 
-> [!CAUTION]
-> Running application requires to create `.env` file, see [.env_example](.env_example).
+> [!NOTE]
+> There is also Jetty version of this application available
+> at [main branch](https://github.com/wkktoria/todo).
 
-Run the following command in terminal window in the root directory:
+## Run the Application
+
+1. Create `.env` file, see [.env_example](.env_example).
+2. Run the following command:
 
 ```console
 ./mvnw spring-boot:run
